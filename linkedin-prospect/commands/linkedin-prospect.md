@@ -129,7 +129,10 @@ Lancement guidé de la campagne. Jamais automatique — toujours après vérific
    - Leads incomplets s'il y en a (les lister si < 5, sinon le count)
    - Rappel : la série de messages active
 7. Demander confirmation explicite : "Tu confirmes le lancement ?"
-8. Si oui → lancer les leads complets via `mcp__lemlist__review_and_launch_leads`
+8. Si oui → d'abord s'assurer que la campagne est en running (`mcp__lemlist__set_campaign_state` action: "start"), puis lancer les leads en attente :
+   ```bash
+   uv run python3 "${CLAUDE_PLUGIN_ROOT}/scripts/launch_leads.py" <campaign_id>
+   ```
 9. Confirmer : "Campagne lancée. Tu peux suivre avec `/linkedin-prospect status` et surveiller tes DM LinkedIn pour les réponses."
 
 **Garde-fous** (de `references/safety-rules.md`) :
@@ -172,6 +175,7 @@ Les fichiers du setup (`product.md`, `icp.md`, `voice.md`, `arguments.md`, `exam
 | `audit_leads.py <campaign_id> "var1,var2"` | Vérifie que les messages personnalisés sont remplis |
 | `update_lead.py <campaign_id> <nom_ou_lea_xxx> '<json>'` | Met à jour les custom variables d'un lead |
 | `remove_lead.py <campaign_id> <nom_ou_lea_xxx>` | Retire un lead de la campagne (sans unsubscribe global) |
+| `launch_leads.py <campaign_id> [--dry-run]` | Lance les leads en attente de review (scanned → running) |
 
 Chemin complet des scripts : dans le dossier `scripts/` du plugin.
 

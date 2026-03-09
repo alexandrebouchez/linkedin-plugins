@@ -39,6 +39,8 @@ Le MCP Lemlist n'a pas d'outil update lead. Utiliser le script `update_lead.py` 
 
 L'auto-launch doit rester **désactivé** sur toutes les campagnes. Avec l'auto-launch OFF, les leads ajoutés passent par un état "review" avant d'entrer dans la séquence. C'est le filet de sécurité contre les leads avec des variables manquantes (Lemlist envoie les messages avec des variables vides sans bloquer).
 
+Pour lancer les leads en attente après vérification, utiliser `launch_leads.py`. Ne jamais activer l'auto-launch comme contournement.
+
 ### 7. TOUJOURS ajouter les leads avec leurs messages
 
 Ne jamais ajouter un lead à Lemlist sans ses custom variables de messages (`m1_message`, `invitation_note`, etc.) déjà remplies. Utiliser le paramètre `customVariables` de `add_lead_to_campaign` pour pousser les messages en même temps que le lead.
