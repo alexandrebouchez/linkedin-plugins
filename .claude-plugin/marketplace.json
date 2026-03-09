@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "linkedin-plugins",
+  "description": "Plugin de prospection LinkedIn pour Claude Code",
+  "owner": {
+    "name": "Alexandre Bouchez"
+  },
+  "plugins": [
+    {
+      "name": "linkedin-prospect",
+      "description": "LinkedIn prospection: onboarding produit/ICP/voice, rédaction personnalisée, intégration Lemlist",
+      "version": "2.0.0",
+      "source": "./linkedin-prospect"
+    }
+  ]
+}
